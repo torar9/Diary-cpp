@@ -1,8 +1,8 @@
 # Diary-cpp
-Simple C++ diary.
+<h2>Simple C++ diary.</h2>
+<hr>
 
-<h2>About:</h2>
-<p>Simple program structure:</P>
+<h2>Simple program structure:</h2>
 <ul>
 <li><b>Database.cpp/hpp</b> - Holds and stores data into .xml file and takes care about displaying data in QWidgetList.</li>
 <li><b>DiaryWindow.cpp/hpp</b> - Main and the only window.</li>
