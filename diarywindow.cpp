@@ -22,7 +22,7 @@ std::string DiaryWindow::getTimeFormat()
     time (&now);
     info = localtime(&now);
 
-    strftime(buffer,sizeof(buffer),"%I:%M:%S_%d.%m.%Y", info);
+    strftime(buffer,sizeof(buffer),"%H:%M:%S_%d.%m.%Y", info);
     string ftime(buffer);
     ftime += "#" + to_string(rand() % 10000 + 1);
 
