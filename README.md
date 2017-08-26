@@ -2,6 +2,7 @@
 <p>Qt C++ diary.</p>
 
 <h2>Simple program structure:</h2>
+<img src="https://github.com/torar9/Diary-cpp/blob/master/app.png">
 <ul>
 <li><b>Database.cpp/hpp</b> - Holds and stores data into .xml file and takes care about displaying data in QWidgetList.</li>
 <li><b>DiaryWindow.cpp/hpp</b> - Main and the only window.</li>
