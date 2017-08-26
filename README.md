@@ -12,7 +12,7 @@
 
 <hr>
 
-<h2>Used libraries/Frameworks:</h2>
+<h2>Used libraries/frameworks:</h2>
 <ul>
 <li><a href="https://pugixml.org/">pugixml</a></li>
 <li><a href="http://www.boost.org/">Boost</a></li>
