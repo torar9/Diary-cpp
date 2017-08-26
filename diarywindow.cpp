@@ -54,7 +54,6 @@ void DiaryWindow::on_RemoveButton_clicked()
 
 void DiaryWindow::on_EditButton_clicked()
 {
-    cout << "Edit button clicked" << endl;
     if(selectedItem >= 0)
     {
         try
@@ -76,16 +75,12 @@ void DiaryWindow::on_EditButton_clicked()
 
 void DiaryWindow::on_list_clicked(const QModelIndex &index)
 {
-    cout << "One click" << endl;
     ui->EditButton->setEnabled(true);
     selectedItem = index.row();
-
-    cout << "Selected index: " << selectedItem << endl;
 }
 
 void DiaryWindow::on_list_doubleClicked(const QModelIndex &index)
 {
-    cout << "Double click" << endl;
     selectedItem = index.row();
     on_EditButton_clicked();
 }
