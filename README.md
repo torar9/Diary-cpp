@@ -1,0 +1,20 @@
+# Diary-cpp
+Simple C++ diary.
+
+<h2>About:</h2>
+<p>Simple program structure:</P>
+<ul>
+<li><b>Database.cpp/hpp</b> - Holds and stores data into .xml file and takes care about displaying data in QWidgetList.</li>
+<li><b>DiaryWindow.cpp/hpp</b> - Main and the only window.</li>
+<li><b>UserData.cpp/hpp</b> - Holds text and unique identifier which is date and random generated number in this format: "Hours:Minutes:Seconds_Day.Month.Year#Random_Number"</li>
+<li><b>pugixml.cpp/hpp</b> - <a href="https://pugixml.org/">Pugixml</a> librarie.</li>
+<li><b>pugiconfig.hpp</b> - Pugixml config</li>
+</ul>
+
+<hr>
+
+<h2>Used Libaries:</h2>
+<ul>
+<li><a href="https://pugixml.org/">pugixml</a></li>
+<li><a href="http://www.boost.org/">Boost</a></li>
+</ul>
