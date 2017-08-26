@@ -1,6 +1,5 @@
 # Diary-cpp
 <h2>Simple C++ diary.</h2>
-<hr>
 
 <h2>Simple program structure:</h2>
 <ul>
