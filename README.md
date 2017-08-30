@@ -2,6 +2,8 @@
 <p>Qt C++ diary.</p>
 
 <h2>Simple program structure:</h2>
+<img src="https://github.com/torar9/Diary-cpp/blob/master/app.png">
+
 <ul>
 <li><b>Database.cpp/hpp</b> - Holds and stores data into .xml file and takes care about displaying data in QWidgetList.</li>
 <li><b>DiaryWindow.cpp/hpp</b> - Main and the only window.</li>
@@ -14,7 +16,7 @@
 
 <h2>Used libraries/frameworks:</h2>
 <ul>
-<li><a href="https://pugixml.org/">pugixml</a></li>
-<li><a href="http://www.boost.org/">Boost</a></li>
+<li><a href="https://pugixml.org/">pugixml 1.8</a></li>
+<li><a href="http://www.boost.org/">Boost 1.64</a></li>
 <li><a href="https://www.qt.io/">Qt 5.9.1</a></li>
 </ul>
