@@ -16,7 +16,7 @@ Database::Database(QListWidget *wdList)
 
 Database* Database::getInstance()
 {
-    if(!instance)
+    if(instance == nullptr)
     {
         instance = new Database();
     }
@@ -31,7 +31,7 @@ UserData Database::getData(int index)
 
 void Database::updateView()
 {
-    if(wdList)
+    if(wdList != nullptr)
     {
         wdList->clear();
         for(int i = 0; i < list.size(); i++)
