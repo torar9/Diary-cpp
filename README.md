@@ -9,7 +9,7 @@
 <li><b>DiaryWindow.cpp/hpp</b> - Main and the only window.</li>
 <li><b>UserData.cpp/hpp</b> - Holds text and unique identifier which is date and random generated number in this format: "Hours:Minutes:Seconds_Day.Month.Year#Random_Number"</li>
 <li><b>pugixml.cpp/hpp</b> - <a href="https://pugixml.org/">Pugixml</a> librarie.</li>
-<li><b>pugiconfig.hpp</b> - Pugixml config</li>
+<li><b>pugiconfig.hpp</b> - <a href="https://pugixml.org/">Pugixml</a> config</li>
 </ul>
 
 <hr>
