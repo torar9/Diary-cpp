@@ -6,6 +6,7 @@ Database::Database()
 {
     setPath();
     loadData();
+    msg = msg->getInstance();
 }
 
 Database::Database(QListWidget *wdList)
@@ -24,7 +25,7 @@ Database* Database::getInstance()
     return instance;
 }
 
-UserData Database::getData(int index)
+UserData Database::getData(const int index)
 {
     return list.at(index);
 }
@@ -82,6 +83,7 @@ void Database::loadData()
     }
     else
     {
+        msg->displayMessage("data.xml parsed with error!");
         std::cerr << "data.xml parsed with error!" << std::endl;
     }
 }
@@ -101,7 +103,10 @@ void Database::setPath()
     if(!boost::filesystem::exists(location))
     {
         if(!boost::filesystem::create_directory(location))
+        {
+            msg->displayMessage("Unable to create directory");
             std::cerr << "Unable to create directory" << std::endl;
+        }
         else
         {
             std::cout << "Directory created" << std::endl;
@@ -124,11 +129,18 @@ void Database::setPath()
             auto success = doc.save_file(file_location.c_str());
 
             if(!success)
+            {
+                std::string err("Unable to create data.xml at: ");
+                err += location;
+                msg->displayMessage(QString(err.c_str()));
                 std::cerr << "Unable to create " << "data.xml" << " at: " << location << std::endl;
+            }
         }
         catch(std::ios::failure e)
         {
-            std::cerr << e.what() << std::endl;
+            std::string err(e.what());
+            std::cerr << err << std::endl;
+            msg->displayMessage(QString(err.c_str()));
         }
     }
     std::cout << "Location: " << location << std::endl;
@@ -147,29 +159,38 @@ size_t Database::indexOf(const std::string date)
 
 void Database::addData(UserData data)
 {
-    pugi::xml_document doc;
-    pugi::xml_parse_result result = doc.load_file(file_location.c_str());
-
-    if(result)
+    if(list.size() < MAX_LIST_SIZE)
     {
-        pugi::xml_node records = doc.child("records");
-        pugi::xml_node record = records.append_child("record");
+        pugi::xml_document doc;
+        pugi::xml_parse_result result = doc.load_file(file_location.c_str());
 
-        record.append_attribute("date").set_value(data.getDate().c_str());
-
-        pugi::xml_node text = record.append_child("text");
-        text.append_child(pugi::node_pcdata).set_value(data.getText().toUtf8());
-
-        if(doc.save_file(file_location.c_str()))
+        if(result)
         {
-            list.insert(list.end(), data);
-            if(wdList)
-                updateView();
+            pugi::xml_node records = doc.child("records");
+            pugi::xml_node record = records.append_child("record");
+
+            record.append_attribute("date").set_value(data.getDate().c_str());
+
+            pugi::xml_node text = record.append_child("text");
+            text.append_child(pugi::node_pcdata).set_value(data.getText().toUtf8());
+
+            if(doc.save_file(file_location.c_str()))
+            {
+                list.insert(list.end(), data);
+                if(wdList)
+                    updateView();
+            }
+        }
+        else
+        {
+            msg->displayMessage("data.xml parsed with error!");
+            std::cerr << "data.xml parsed with error!" << std::endl;
         }
     }
     else
     {
-        std::cerr << "data.xml parsed with error!" << std::endl;
+        msg->displayMessage("You can store only 7500 items!");
+        std::cerr << "You can store only 7500 items!" << std::endl;
     }
 }
 
@@ -193,7 +214,10 @@ void Database::editData(UserData Data)
                 {
                     record.child("text").text().set(Data.getText().toUtf8().toStdString().c_str());
                     if(!doc.save_file(file_location.c_str()))
+                    {
+                        msg->displayMessage("Unable to save file!");
                         std::cerr << "Unable to save file!" << std::endl;
+                    }
 
                     updateView();
                     break;
@@ -202,12 +226,16 @@ void Database::editData(UserData Data)
         }
         else
         {
+            msg->displayMessage("data.xml parsed with error!");
             std::cerr << "data.xml parsed with error!" << std::endl;
         }
     }
     catch(std::exception e)
     {
-        std::cerr << e.what() << std::endl;
+        std::string err(e.what());
+
+        msg->displayMessage(QString(err.c_str()));
+        std::cerr << err << std::endl;
     }
 }
 
@@ -241,16 +269,20 @@ void Database::removeData(UserData data)
         }
         else
         {
+            msg->displayMessage("data.xml parsed with error!");
             std::cerr << "data.xml parsed with error!" << std::endl;
         }
     }
     catch(std::exception e)
     {
-        std::cerr << e.what() << std::endl;
+        std::string err(e.what());
+
+        msg->displayMessage(QString(err.c_str()));
+        std::cerr << err << std::endl;
     }
 }
 
-void Database::removeData(int index)
+void Database::removeData(const int index)
 {
     try
     {
@@ -258,6 +290,9 @@ void Database::removeData(int index)
     }
     catch(std::out_of_range e)
     {
-        std::cerr << e.what() << std::endl;
+        std::string err(e.what());
+
+        msg->displayMessage(QString(err.c_str()));
+        std::cerr << err << std::endl;
     }
 }

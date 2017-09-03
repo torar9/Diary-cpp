@@ -28,14 +28,16 @@ SOURCES += \
         diarywindow.cpp \
     database.cpp \
     userdata.cpp \
-    pugixml.cpp
+    pugixml.cpp \
+    messenger.cpp
 
 HEADERS += \
         diarywindow.hpp \
     database.hpp \
     userdata.hpp \
     pugiconfig.hpp \
-    pugixml.hpp
+    pugixml.hpp \
+    messenger.hpp
 
 FORMS += \
         diarywindow.ui

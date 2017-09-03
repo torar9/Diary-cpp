@@ -6,9 +6,7 @@
 
 #include <iostream>
 #include <QMainWindow>
-#include <qpushbutton>
-#include <QIcon>
-#include <QModelIndex>
+
 #include "database.hpp"
 
 using namespace std;
@@ -26,6 +24,7 @@ private:
     int selectedItem = -1;
 
     std::string getTimeFormat();
+    void displayMessage();
     void clearInput();
     void setDefault();
 

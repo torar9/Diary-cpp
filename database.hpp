@@ -3,19 +3,23 @@
 
 #define WIN //LINUX
 #define MAX_ROW_SIZE 40
+#define MAX_LIST_SIZE 10000
 
 #include <iostream>
 #include <regex>
 #include <string>
-#include <QStringList>
+
 #include <boost/filesystem.hpp>
 #include <pugixml.hpp>
+
+#include "messenger.hpp"
 #include "userdata.hpp"
 
 class Database
 {
 private:
     static Database* instance;
+    Messenger* msg;
     std::string location;
     std::string file_location;
     QListWidget* wdList = nullptr;
@@ -31,12 +35,12 @@ private:
 
 public:
     static Database* getInstance();
-    UserData getData(int index);
+    UserData getData(const int index);
     void setView(QListWidget *wdList);
     void addData(UserData data);
     void editData(UserData Data);
     void removeData(UserData data);
-    void removeData(int index);
+    void removeData(const int index);
 };
 
 #endif //DATABASE_HPP
