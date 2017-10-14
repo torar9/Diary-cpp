@@ -96,8 +96,8 @@ void Database::setPath()
     file_location = location + "data.xml";
 #else
     std::string appdata = getenv("HOME");
-    loc = appdata + "\\.torar\\";
-    floc = loc + "data.xml";
+    location = appdata + "/.torar/";
+    file_location = location + "data.xml";
 #endif
 
     if(!boost::filesystem::exists(location))
@@ -144,6 +144,7 @@ void Database::setPath()
         }
     }
     std::cout << "Location: " << location << std::endl;
+    std::cout << "Data location: " << file_location << std::endl;
 }
 
 size_t Database::indexOf(const std::string date)
@@ -154,7 +155,7 @@ size_t Database::indexOf(const std::string date)
             return i;
     }
 
-    throw std::exception("Unable to find index!");
+    throw std::logic_error("Unable to find index!");
 }
 
 void Database::addData(UserData data)
@@ -230,7 +231,7 @@ void Database::editData(UserData Data)
             std::cerr << "data.xml parsed with error!" << std::endl;
         }
     }
-    catch(std::exception e)
+    catch(std::logic_error e)
     {
         std::string err(e.what());
 
@@ -273,7 +274,7 @@ void Database::removeData(UserData data)
             std::cerr << "data.xml parsed with error!" << std::endl;
         }
     }
-    catch(std::exception e)
+    catch(std::logic_error e)
     {
         std::string err(e.what());
 

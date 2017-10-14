@@ -8,6 +8,7 @@
 #include <iostream>
 #include <regex>
 #include <string>
+#include <exception>
 
 #include <boost/filesystem.hpp>
 #include <pugixml.hpp>

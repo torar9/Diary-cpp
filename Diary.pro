@@ -47,3 +47,6 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../libs/boost/boost_
 
 INCLUDEPATH += $$PWD/../../libs/boost/boost_1_64_0
 DEPENDPATH += $$PWD/../../libs/boost/boost_1_64_0
+
+LIBS += -L/usr/lib/x86_64-linux-gnu -lboost_system
+LIBS += -L/usr/lib/x86_64-linux-gnu -lboost_filesystem
