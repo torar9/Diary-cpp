@@ -108,8 +108,8 @@ void DiaryWindow::on_save_button_clicked()
             UserData usd(getTimeFormat(), text);
             database->addData(usd);
         }
-        //clearInput();
-        //ui->tabBar->setCurrentIndex(LIST_TAB);
+        clearInput();
+        ui->tabBar->setCurrentIndex(LIST_TAB);
     }
 }
 
