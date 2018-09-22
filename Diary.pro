@@ -37,16 +37,12 @@ HEADERS += \
     userdata.hpp \
     pugiconfig.hpp \
     pugixml.hpp \
-    messenger.hpp
+    messenger.hpp \
+    config.hpp
 
 FORMS += \
         diarywindow.ui
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../libs/boost/boost_1_64_0/stage/lib/ -lboost_filesystem-vc141-mt-gd-1_64
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../libs/boost/boost_1_64_0/stage/lib/ -lboost_filesystem-vc141-mt-gd-1_64
+unix:!macx: LIBS += -lboost_system
 
-INCLUDEPATH += $$PWD/../../libs/boost/boost_1_64_0
-DEPENDPATH += $$PWD/../../libs/boost/boost_1_64_0
-
-LIBS += -L/usr/lib/x86_64-linux-gnu -lboost_system
-LIBS += -L/usr/lib/x86_64-linux-gnu -lboost_filesystem
+unix:!macx: LIBS += -lboost_filesystem

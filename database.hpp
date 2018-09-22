@@ -1,10 +1,6 @@
 #ifndef DATABASE_HPP
 #define DATABASE_HPP
 
-#define WIN //LINUX
-#define MAX_ROW_SIZE 40
-#define MAX_LIST_SIZE 10000
-
 #include <iostream>
 #include <regex>
 #include <string>
@@ -13,6 +9,7 @@
 #include <boost/filesystem.hpp>
 #include <pugixml.hpp>
 
+#include "config.hpp"
 #include "messenger.hpp"
 #include "userdata.hpp"
 
