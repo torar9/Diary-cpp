@@ -39,7 +39,7 @@ void DiaryWindow::setDefault()
 {
     isEdited = false;
     clearInput();
-    ui->tabBar->setCurrentIndex(LIST_TAB);
+    ui->tabBar->setCurrentIndex(LIST_TAB_ID);
 }
 
 void DiaryWindow::on_RemoveButton_clicked()
@@ -59,7 +59,7 @@ void DiaryWindow::on_EditButton_clicked()
         try
         {
             UserData eData = database->getData(selectedItem);
-            ui->tabBar->setCurrentIndex(NEW_TAB);
+            ui->tabBar->setCurrentIndex(NEW_TAB_ID);
             ui->text_field->setPlainText(eData.getText());
             ui->text_label->setText(QString(eData.getDate().c_str()));
             isEdited = true;
@@ -98,7 +98,7 @@ void DiaryWindow::on_save_button_clicked()
         }
         isEdited = false;
         clearInput();
-        ui->tabBar->setCurrentIndex(LIST_TAB);
+        ui->tabBar->setCurrentIndex(LIST_TAB_ID);
     }
     else
     {
@@ -109,7 +109,7 @@ void DiaryWindow::on_save_button_clicked()
             database->addData(usd);
         }
         clearInput();
-        ui->tabBar->setCurrentIndex(LIST_TAB);
+        ui->tabBar->setCurrentIndex(LIST_TAB_ID);
     }
 }
 

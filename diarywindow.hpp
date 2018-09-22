@@ -1,13 +1,11 @@
 #ifndef DIARYWINDOW_HPP
 #define DIARYWINDOW_HPP
 
-#define LIST_TAB 0
-#define NEW_TAB 1
-
 #include <iostream>
 #include <QMainWindow>
 
 #include "database.hpp"
+#include "config.hpp"
 
 using namespace std;
 
