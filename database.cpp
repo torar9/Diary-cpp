@@ -35,7 +35,7 @@ void Database::updateView()
     if(wdList != nullptr)
     {
         wdList->clear();
-        for(int i = 0; i < list.size(); i++)
+        for(std::size_t i = 0; i < list.size(); i++)
         {
             UserData data = list.at(i);
             std::string text = data.getText().toStdString();
@@ -136,7 +136,7 @@ void Database::setPath()
                 std::cerr << "Unable to create " << "data.xml" << " at: " << location << std::endl;
             }
         }
-        catch(std::ios::failure e)
+        catch(std::ios::failure &e)
         {
             std::string err(e.what());
             std::cerr << err << std::endl;
@@ -231,7 +231,7 @@ void Database::editData(UserData Data)
             std::cerr << "data.xml parsed with error!" << std::endl;
         }
     }
-    catch(std::logic_error e)
+    catch(std::logic_error &e)
     {
         std::string err(e.what());
 
@@ -274,7 +274,7 @@ void Database::removeData(UserData data)
             std::cerr << "data.xml parsed with error!" << std::endl;
         }
     }
-    catch(std::logic_error e)
+    catch(std::logic_error &e)
     {
         std::string err(e.what());
 
@@ -289,7 +289,7 @@ void Database::removeData(const int index)
     {
         removeData(list.at(index));
     }
-    catch(std::out_of_range e)
+    catch(std::out_of_range &e)
     {
         std::string err(e.what());
 

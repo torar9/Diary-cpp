@@ -64,7 +64,7 @@ void DiaryWindow::on_EditButton_clicked()
             ui->text_label->setText(QString(eData.getDate().c_str()));
             isEdited = true;
         }
-        catch(std::out_of_range e)
+        catch(std::out_of_range &e)
         {
             cerr << e.what() << endl;
         }
