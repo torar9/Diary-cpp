@@ -16,7 +16,7 @@
 
 <h2>Used libraries/frameworks:</h2>
 <ul>
-<li><a href="https://pugixml.org/">pugixml 1.9</a></li>
-<li><a href="http://www.boost.org/">Boost 1.67</a></li>
+<li><a href="https://pugixml.org/">pugixml 1.9</a> or newer</li>
+<li><a href="http://www.boost.org/">Boost 1.67</a> or newer</li>
 <li><a href="https://www.qt.io/">Qt 5.11.1</a></li>
 </ul>
